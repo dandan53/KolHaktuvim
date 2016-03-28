@@ -1,6 +1,6 @@
-﻿app.controller('NewPersonCtrl', function ($scope, $http, $state, $ionicPopup, personService) {
+﻿app.controller('EditPersonCtrl', function ($scope, $http, $state, $ionicPopup, personService) {
 
-    $scope.addPerson = function () {
+    $scope.submit = function () {
 
         if ($scope.newPerson.firstName != "" && $scope.newPerson.lastName != "" &&
                 $scope.newPerson.mother != "" && $scope.newPerson.gender != "" &&
@@ -11,14 +11,28 @@
             var person = $scope.newPerson.firstName + " " + $scope.newPerson.lastName + " " +
                 gender + " " + $scope.newPerson.mother;
              
-            $scope.type = $scope.newPerson.type;   
-            personService.addPerson(person, $scope.type)
+            $scope.listType = $scope.newPerson.type;
+
+            if ($scope.type == 'add')
+            {
+                personService.addPerson(person, $scope.listType)
                 .then(
                     loadData,
                     function (errorMessage) {
                         console.warn(errorMessage);
                     }
                 );
+            }
+            else
+            {
+                personService.removePerson(person, $scope.listType)
+                .then(
+                    loadData,
+                    function (errorMessage) {
+                        console.warn(errorMessage);
+                    }
+                );
+            }
         }
         else {
             alert('נא מלא את כל הפרטים');
@@ -68,5 +82,10 @@
     };
 
     $scope.initPerson();
+
+    var currentState = $state.current.name; 
+    $scope.type = (currentState == 'app.add' ? 'add' : 'remove');
+    
+    $scope.title = (currentState == 'app.add' ? 'הוספת אדם לרשימות' : 'הסרת אדם מהרשימות');
 
 });

@@ -1,4 +1,4 @@
-<ion-view view-title="הוספת אדם">
+<ion-view view-title={{title}}>
 
 <ion-content>
  <form name="myForm" novalidate>    
@@ -29,7 +29,7 @@
 </div>
 
 <div class="padding">
-  <button class="button button-block button-positive" ng-disabled="myForm.$invalid" ng-click="addPerson()">הוספה</button>
+  <button class="button button-block button-positive" ng-disabled="myForm.$invalid" ng-click="submit()">הוספה</button>
 </div>
 </form>
   </ion-content>

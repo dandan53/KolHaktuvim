@@ -85,7 +85,7 @@
 
     var currentState = $state.current.name; 
     $scope.type = (currentState == 'app.add' ? 'add' : 'remove');
-    
     $scope.title = (currentState == 'app.add' ? 'הוספת אדם לרשימות' : 'הסרת אדם מהרשימות');
+    $scope.submitTitle = (currentState == 'app.add' ? 'הוספה' : 'הסרה');
 
 });

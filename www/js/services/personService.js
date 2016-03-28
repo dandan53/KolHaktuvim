@@ -1,8 +1,8 @@
 ﻿app.service("personService", function ($http, $q) {
 
-    //var url = "http://kolhaktuvimservice.apphb.com/";
+    var url = "http://kolhaktuvimservice.apphb.com/";
 
-    var url =  "http://localhost:61340/";
+    //var url =  "http://localhost:61340/";
 
     // Return public API.
     return ({

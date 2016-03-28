@@ -2,7 +2,7 @@
 
     $scope.show = function() {
     $ionicLoading.show({
-      template: '<p>Loading...</p><ion-spinner></ion-spinner>'
+      template: '<p>...בטעינה</p><ion-spinner></ion-spinner>'
     });
   };
 

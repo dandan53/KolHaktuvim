@@ -9,7 +9,8 @@
       //  getBid: getBid,
        // updateBid: updateBid,
         getPersons: getPersons,
-        addPerson: addPerson
+        addPerson: addPerson,
+        removePerson: removePerson
 
         //removeFriend: removeFriend
     });
@@ -44,43 +45,18 @@
 
     }
 
-    function updateBid(item) {
 
-        var request = $http({
-            method: "post",
-            url: "/api/item/",
-            //params: {
-            //    action: "add"
-            //},
-            data:
-            {
-                Id: item.Id,
-                NewPrice: item.NewPrice,
-                NewAskCID: item.NewAskCID,
-                DueDate: item.DueDate,
-                Amount: item.Amount,
-                BidCID: item.BidCID
-            }
-        });
+     function removePerson(person, type) {
 
-        return (request.then(handleSuccess, handleError));
+            var request = $http({
+                method: "delete",
+                url: url + "api/person?person=" + person + "&&type=" + type
+            });
+
+            return (request.then(handleSuccess, handleError));
 
     }
-
-    // I get all of the friends in the remote collection.
-    function getBid(id) {
-
-        var request = $http({
-            method: "get",
-            url: "/api/item/",
-            params: {
-                id: id
-            }
-        });
-
-        return (request.then(handleSuccess, handleError));
-
-    }
+    
     // ---
     // PRIVATE METHODS.
     // ---

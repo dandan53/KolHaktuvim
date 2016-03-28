@@ -52,12 +52,22 @@ var app = angular.module('starter', ['ionic'])
         }
       })
 
-  .state('app.new', {
-        url: '/new',
+  .state('app.add', {
+        url: '/add',
         views: {
           'menuContent': {
-            templateUrl: 'templates/newperson.html',
-            controller: 'NewPersonCtrl'
+            templateUrl: 'templates/editperson.html',
+            controller: 'EditPersonCtrl'
+          }
+        }
+      })
+
+  .state('app.remove', {
+        url: '/remove',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/editperson.html',
+            controller: 'EditPersonCtrl'
           }
         }
       })
