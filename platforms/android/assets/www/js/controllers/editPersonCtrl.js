@@ -6,32 +6,41 @@
                 $scope.newPerson.mother != "" && $scope.newPerson.gender != "" &&
                 $scope.newPerson.type != "") {
 
-            var gender = ($scope.newPerson.gender == "male" ? "בן" : "בת");
+            if ($scope.checkInput($scope.newPerson.firstName) &&
+                $scope.checkInput($scope.newPerson.lastName) &&
+                $scope.checkInput($scope.newPerson.mother)){
 
-            var person = $scope.newPerson.firstName + " " + $scope.newPerson.lastName + " " +
-                gender + " " + $scope.newPerson.mother;
-             
-            $scope.listType = $scope.newPerson.type;
+                var gender = ($scope.newPerson.gender == "male" ? "בן" : "בת");
 
-            if ($scope.type == 'add')
-            {
-                personService.addPerson(person, $scope.listType)
-                .then(
-                    loadData,
-                    function (errorMessage) {
-                        console.warn(errorMessage);
-                    }
-                );
+                var person = $scope.newPerson.firstName + " " + $scope.newPerson.lastName + " " +
+                    gender + " " + $scope.newPerson.mother;
+                 
+                $scope.listType = $scope.newPerson.type;
+
+                if ($scope.type == 'add')
+                {
+                    personService.addPerson(person, $scope.listType)
+                    .then(
+                        loadData,
+                        function (errorMessage) {
+                            console.warn(errorMessage);
+                        }
+                    );
+                }
+                else
+                {
+                    personService.removePerson(person, $scope.listType)
+                    .then(
+                        loadData,
+                        function (errorMessage) {
+                            console.warn(errorMessage);
+                        }
+                    );
+                }
             }
             else
             {
-                personService.removePerson(person, $scope.listType)
-                .then(
-                    loadData,
-                    function (errorMessage) {
-                        console.warn(errorMessage);
-                    }
-                );
+                alert('יש להכניס אותיות בלבד');
             }
         }
         else {
@@ -80,6 +89,15 @@
         $scope.newPerson.gender = "";
         $scope.newPerson.type = "";
     };
+
+    $scope.checkInput = function (inputtxt) {   
+        var EnglishChars = /^[A-Za-z]+$/;  
+        var HebrewChars = /^[\u0590-\u05FF]+$/;
+
+        var retVal = ((inputtxt.match(EnglishChars) || inputtxt.match(HebrewChars)) ? true : false);
+        return retVal;  
+    }; 
+
 
     $scope.initPerson();
 

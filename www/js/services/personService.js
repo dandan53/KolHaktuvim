@@ -1,8 +1,8 @@
 app.service("personService", function ($http, $q) {
 
-    var url = "http://kolhaktuvimservice.apphb.com/";
+    //var url = "http://kolhaktuvimservice.apphb.com/";
 
-    //var url =  "http://localhost:61340/";
+    var url =  "http://localhost:61340/";
 
     // Return public API.
     return ({
@@ -69,6 +69,20 @@ app.service("personService", function ($http, $q) {
 
     }
     
+    function search(searchText, type) {
+
+            var request = $http({
+                method: "get",
+                url: url + "api/person?type=" + type + "&&searchText=" + searchText
+                //params: {
+                //    id: id
+                //}
+            });
+
+            return (request.then(handleSuccess, handleError));
+        }
+
+
     // ---
     // PRIVATE METHODS.
     // ---
