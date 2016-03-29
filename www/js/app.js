@@ -33,6 +33,7 @@ var app = angular.module('starter', ['ionic'])
   })
 
   .state('app.refualist', {
+      cache: false,
       url: '/refualist',
       views: {
         'menuContent': {
@@ -43,6 +44,7 @@ var app = angular.module('starter', ['ionic'])
     })
 
   .state('app.iluilist', {
+        cache: false,
         url: '/iluilist',
         views: {
           'menuContent': {
@@ -53,6 +55,7 @@ var app = angular.module('starter', ['ionic'])
       })
 
   .state('app.add', {
+        cache: true,
         url: '/add',
         views: {
           'menuContent': {
@@ -63,6 +66,7 @@ var app = angular.module('starter', ['ionic'])
       })
 
   .state('app.remove', {
+        cache: true,
         url: '/remove',
         views: {
           'menuContent': {

@@ -1,13 +1,13 @@
-﻿app.service("personService", function ($http, $q) {
+app.service("personService", function ($http, $q) {
 
-    //var url = "http://kolhaktuvimservice.apphb.com/";
+    var url = "http://kolhaktuvimservice.apphb.com/";
 
-    var url =  "http://localhost:61340/";
+    //var url =  "http://localhost:61340/";
 
     // Return public API.
     return ({
       //  getBid: getBid,
-       // updateBid: updateBid,
+       // updateBid: updateBid,L
         getPersons: getPersons,
         addPerson: addPerson,
         removePerson: removePerson
@@ -20,7 +20,7 @@
     // PUBLIC METHODS.
     // ---
 
-    function getPersons(type) {
+  /*  function getPersons(type) {
 
         var request = $http({
             method: "get",
@@ -31,8 +31,20 @@
         });
 
         return (request.then(handleSuccess, handleError));
-    }
+    }*/
 
+    function getPersons(type, start, pageSize) {
+
+            var request = $http({
+                method: "get",
+                url: url + "api/person?type=" + type + "&&start=" + start + "&&pageSize=" + pageSize
+                //params: {
+                //    id: id
+                //}
+            });
+
+            return (request.then(handleSuccess, handleError));
+        }
 
     function addPerson(person, type) {
 

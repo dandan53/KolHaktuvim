@@ -65,7 +65,7 @@
        });
 
        alertPopup.then(function(res) {
-         var state = (res == 'refua' ? 'app.refualist' : 'app.iluilist');
+         var state = ($scope.listType == 'refua' ? 'app.refualist' : 'app.iluilist');
          $state.go(state);
          console.log('Thank you for not eating my delicious ice cream cone');
        });
