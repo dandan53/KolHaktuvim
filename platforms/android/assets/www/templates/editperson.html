@@ -2,35 +2,35 @@
 
 <ion-content>
  <form name="myForm" novalidate>    
-<div class="list">
-  <label class="item item-input">
-    <input type="text" name="firstName" placeholder="שם פרטי" ng-model="newPerson.firstName" ng-required="true" style="text-align: right;">
-  </label>
-  <label class="item item-input">
-    <input type="text" name="lastName" placeholder="שם משפחה" ng-model="newPerson.lastName" ng-required="true" style="text-align: right;">
-  </label>
-  <label class="item item-input">
-    <input type="text" name="mother" placeholder="שם האם" ng-model="newPerson.mother" ng-required="true" style="text-align: right;">
-  </label>
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" name="firstName" placeholder="שם פרטי" ng-model="newPerson.firstName" ng-required="true" style="text-align: right;">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="lastName" placeholder="שם משפחה" ng-model="newPerson.lastName" ng-required="true" style="text-align: right;">
+        </label>
+        <label class="item item-input">
+          <input type="text" name="mother" placeholder="שם האם" ng-model="newPerson.mother" ng-required="true" style="text-align: right;">
+        </label>
 
-  <div class="item item-divider ng-binding" style="text-align: right;"> מין </div>
-  <ion-radio name="male" ng-model="newPerson.gender" ng-value="'male'" ng-required="true" style="text-align: right;">זכר</ion-radio>
-  <ion-radio name="female" ng-model="newPerson.gender" ng-value="'female'" ng-required="true" style="text-align: right;">נקבה</ion-radio>
+        <div class="item item-divider ng-binding" style="text-align: right;"> מין </div>
+        <ion-radio name="male" ng-model="newPerson.gender" ng-value="'male'" ng-required="true" style="text-align: right;">זכר</ion-radio>
+        <ion-radio name="female" ng-model="newPerson.gender" ng-value="'female'" ng-required="true" style="text-align: right;">נקבה</ion-radio>
 
-  <div class="item item-divider ng-binding" style="text-align: right;"> סוג הרשימה </div>
-  <ion-radio name="ilui" ng-model="newPerson.type" ng-value="'ilui'" ng-required="true" style="text-align: right;">לעילוי נשמה</ion-radio>
-  <ion-radio name="refua" ng-model="newPerson.type" ng-value="'refua'" ng-required="true" style="text-align: right;">לרפואה</ion-radio>
+        <div class="item item-divider ng-binding" style="text-align: right;"> סוג הרשימה </div>
+        <ion-radio name="ilui" ng-model="newPerson.type" ng-value="'ilui'" ng-required="true" style="text-align: right;">לעילוי נשמה</ion-radio>
+        <ion-radio name="refua" ng-model="newPerson.type" ng-value="'refua'" ng-required="true" style="text-align: right;">לרפואה</ion-radio>
 
-</div>
+      </div>
 
-<div class="padding">
-  <p ng-show="myForm.firstName.$error.required || myForm.lastName.$error.required || myForm.mother.$error.required" style="text-align: right;">
-   כל השדות הינם שדות חובה</p>
-</div>
+      <div class="padding">
+        <p ng-show="myForm.firstName.$error.required || myForm.lastName.$error.required || myForm.mother.$error.required" style="text-align: right;">
+         כל השדות הינם שדות חובה</p>
+      </div>
 
-<div class="padding">
-  <button class="button button-block button-positive" ng-disabled="myForm.$invalid" ng-click="submit()">{{submitTitle}}</button>
-</div>
-</form>
+      <div class="padding">
+        <button class="button button-block button-positive" ng-disabled="myForm.$invalid" ng-click="submit()">{{submitTitle}}</button>
+      </div>
+    </form>
   </ion-content>
 </ion-view>

@@ -6,13 +6,9 @@ app.service("personService", function ($http, $q) {
 
     // Return public API.
     return ({
-      //  getBid: getBid,
-       // updateBid: updateBid,L
         getPersons: getPersons,
         addPerson: addPerson,
-        removePerson: removePerson
-
-        //removeFriend: removeFriend
+        removePerson: removePerson,
     });
 
 
@@ -33,11 +29,13 @@ app.service("personService", function ($http, $q) {
         return (request.then(handleSuccess, handleError));
     }*/
 
-    function getPersons(type, start, pageSize) {
+    function getPersons(type, start, pageSize, searchText) {
 
             var request = $http({
                 method: "get",
-                url: url + "api/person?type=" + type + "&&start=" + start + "&&pageSize=" + pageSize
+               // url: url + "api/person?type=" + type + "&&start=" + start + "&&pageSize=" + pageSize
+                url: url + "api/person?type=" + type + "&&start=" + start + 
+                    "&&pageSize=" + pageSize + "&&searchText=" + searchText
                 //params: {
                 //    id: id
                 //}
@@ -69,6 +67,21 @@ app.service("personService", function ($http, $q) {
 
     }
     
+   /* function search(searchText, type, start, pageSize) {
+
+            var request = $http({
+                method: "get",
+                url: url + "api/person?type=" + type + "&&start=" + start + 
+                    "&&pageSize=" + pageSize + "&&searchText=" + searchText
+                //params: {
+                //    id: id
+                //}
+            });
+
+            return (request.then(handleSuccess, handleError));
+        }
+*/
+
     // ---
     // PRIVATE METHODS.
     // ---

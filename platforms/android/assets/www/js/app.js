@@ -54,6 +54,17 @@ var app = angular.module('starter', ['ionic'])
         }
       })
 
+  .state('app.search', {
+          cache: false,
+          url: '/search',
+          views: {
+            'menuContent': {
+              templateUrl: 'templates/search.html',
+              controller: 'SearchCtrl'
+            }
+          }
+        })
+
   .state('app.add', {
         cache: true,
         url: '/add',
