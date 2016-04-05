@@ -1,4 +1,4 @@
-﻿app.controller('ListCtrl', function ($scope, $http, $state, $ionicLoading, personService) {
+﻿app.controller('SearchCtrl', function ($scope, $http, $state, $ionicLoading, personService) {
 
     $scope.show = function() {
     /*$ionicLoading.show({
@@ -85,25 +85,35 @@ $scope.getPersonListMoq = function (type) {
       //$scope.hide($ionicLoading);  
     }
    
-    $scope.addPersons = function() {
-      var currentState = $state.current.name; 
-      var type = (currentState == 'app.refualist' ? 'refua' : 'ilui');
-      $scope.getPersonList(type, "");
+    $scope.addPersons = function() {  
+        if ($scope.searchText.length > 1 && currentStart > 0)
+        {
+          $scope.getPersonList(type, $scope.searchText);
+        }
     }
 
     $scope.morePersonsCanBeLoaded = function() {
-         var retVal = (lastPageSize < PAGA_SIZE ? false : true);
+         var retVal = ((lastPageSize < PAGA_SIZE || $scope.searchText.length < 2) ? false : true);
          return retVal;
     }
 
-    var currentState = $state.current.name; 
-    var type = (currentState == 'app.refualist' ? 'refua' : 'ilui');   
-    $scope.title = (currentState == 'app.refualist' ? 'לרפואת' : 'לעילוי נשמת');
+    $scope.searchQueryChange = function() {
+        if ($scope.searchText.length > 1)
+        {
+          currentStart = 0;
+          $scope.persons = [];
 
+          $scope.getPersonList(type, $scope.searchText);
+        }
+    };
+
+    var type = "";
     var PAGA_SIZE = 10;
     var currentStart = 0
     $scope.persons = [];
     var lastPageSize = PAGA_SIZE;
 
-  //$scope.getPersonList(type);
+    $scope.searchText = "";
+
+    //$scope.getPersonList(type);
 });
