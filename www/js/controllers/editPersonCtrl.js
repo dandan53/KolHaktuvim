@@ -91,8 +91,12 @@
     };
 
     $scope.checkInput = function (inputtxt) {   
+
         var EnglishChars = /^[A-Za-z]+$/;  
         var HebrewChars = /^[\u0590-\u05FF]+$/;
+        var chars = /\s|\-|\.|\_+$/g;
+
+        inputtxt = inputtxt.replace(chars, "");
 
         var retVal = ((inputtxt.match(EnglishChars) || inputtxt.match(HebrewChars)) ? true : false);
         return retVal;  
