@@ -50,7 +50,7 @@
 
     function loadData(data) {
         if (data != null) {
-            $scope.showAlert();          
+            $scope.showAlert(data);          
             $scope.initPerson();
         }
         else {
@@ -67,16 +67,35 @@
 
 
     // An alert dialog
-     $scope.showAlert = function() {
+     $scope.showAlert = function(data) {
+        var title = "";
+
+        switch(data) {
+        case "Error":
+            title = 'Error';
+            break;
+        case "PersonAdded":
+            title = '!הפעולה התבצעה בהצלחה';
+            break;
+        case "PersonRemoved":
+            title = '!הפעולה התבצעה בהצלחה';
+            break;
+        case "PersonExists":
+            title = 'האדם כבר קיים ברשימה';
+            break;
+        case "PersonDoesntExist":
+            title = 'האדם לא קיים ברשימה';
+            break;
+        }
+
        var alertPopup = $ionicPopup.alert({
-         title: '!הפעולה התבצעה בהצלחה',
+         title: title,
          //template: 'It might taste good'
        });
 
        alertPopup.then(function(res) {
          var state = ($scope.listType == 'refua' ? 'app.refualist' : 'app.iluilist');
          $state.go(state);
-         console.log('Thank you for not eating my delicious ice cream cone');
        });
      };
 
@@ -91,8 +110,12 @@
     };
 
     $scope.checkInput = function (inputtxt) {   
+
         var EnglishChars = /^[A-Za-z]+$/;  
         var HebrewChars = /^[\u0590-\u05FF]+$/;
+        var chars = /\s|\-|\.|\_+$/g;
+
+        inputtxt = inputtxt.replace(chars, "");
 
         var retVal = ((inputtxt.match(EnglishChars) || inputtxt.match(HebrewChars)) ? true : false);
         return retVal;  

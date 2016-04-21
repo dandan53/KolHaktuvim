@@ -66,7 +66,7 @@ var app = angular.module('starter', ['ionic'])
         })
 
   .state('app.add', {
-        cache: true,
+        cache: false,
         url: '/add',
         views: {
           'menuContent': {
@@ -77,7 +77,7 @@ var app = angular.module('starter', ['ionic'])
       })
 
   .state('app.remove', {
-        cache: true,
+        cache: false,
         url: '/remove',
         views: {
           'menuContent': {
