@@ -73,10 +73,14 @@ $scope.getPersonListMoq = function (type) {
           //currentStart += PAGA_SIZE;
 
           lastPageSize = data.length;
+
+          $scope.isEmptyState = false;
       }
       else
       {
         lastPageSize = 0;
+
+        $scope.isEmptyState = true;
       }
       
       $scope.$broadcast('scroll.infiniteScrollComplete');
@@ -114,6 +118,8 @@ $scope.getPersonListMoq = function (type) {
     var lastPageSize = PAGA_SIZE;
 
     $scope.searchText = "";
+
+    $scope.isEmptyState = false;
 
     //$scope.getPersonList(type);
 });

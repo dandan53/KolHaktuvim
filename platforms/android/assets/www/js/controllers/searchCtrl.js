@@ -77,6 +77,16 @@ $scope.getPersonListMoq = function (type) {
       else
       {
         lastPageSize = 0;
+
+        $scope.isEmptyState = ((lastPageSize < PAGA_SIZE || $scope.searchText.length < 2) ? false : true);
+
+          {
+             = true;
+          }
+          else
+          {
+            $scope.isEmptyState = false;
+          }
       }
       
       $scope.$broadcast('scroll.infiniteScrollComplete');
@@ -114,6 +124,8 @@ $scope.getPersonListMoq = function (type) {
     var lastPageSize = PAGA_SIZE;
 
     $scope.searchText = "";
+
+    $scope.isEmptyState = false;
 
     //$scope.getPersonList(type);
 });

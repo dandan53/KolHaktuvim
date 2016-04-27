@@ -51,7 +51,6 @@
     function loadData(data) {
         if (data != null) {
             $scope.showAlert(data);          
-            $scope.initPerson();
         }
         else {
         }
@@ -94,8 +93,14 @@
        });
 
        alertPopup.then(function(res) {
-         var state = ($scope.listType == 'refua' ? 'app.refualist' : 'app.iluilist');
-         $state.go(state);
+         
+        if (data == "PersonAdded" || data == "PersonRemoved" || data == "PersonExists")
+        {
+            var state = ($scope.listType == 'refua' ? 'app.refualist' : 'app.iluilist');
+            $state.go(state);
+
+            $scope.initPerson();
+        }         
        });
      };
 
