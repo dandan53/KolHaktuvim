@@ -17,6 +17,8 @@
                  
                 $scope.listType = $scope.newPerson.type;
 
+                $scope.submitted = true;
+                
                 if ($scope.type == 'add')
                 {
                     personService.addPerson(person, $scope.listType)
@@ -33,6 +35,7 @@
                     .then(
                         loadData,
                         function (errorMessage) {
+                            $scope.submitted = false;
                             console.warn(errorMessage);
                         }
                     );
@@ -49,6 +52,7 @@
     };
 
     function loadData(data) {
+        $scope.submitted = false;
         if (data != null) {
             $scope.showAlert(data);          
         }
@@ -133,5 +137,5 @@
     $scope.type = (currentState == 'app.add' ? 'add' : 'remove');
     $scope.title = (currentState == 'app.add' ? 'הוספת אדם לרשימות' : 'הסרת אדם מהרשימות');
     $scope.submitTitle = (currentState == 'app.add' ? 'הוספה' : 'הסרה');
-
+    $scope.submitted = false;
 });

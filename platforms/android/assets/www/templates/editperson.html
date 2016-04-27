@@ -29,7 +29,7 @@
       </div>
 
       <div class="padding">
-        <button class="button button-block button-positive" ng-disabled="myForm.$invalid" ng-click="submit()">{{submitTitle}}</button>
+        <button class="button button-block button-positive" ng-disabled="myForm.$invalid || submitted" ng-click="submit()">{{submitTitle}}</button>
       </div>
     </form>
   </ion-content>

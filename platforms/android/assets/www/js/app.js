@@ -21,7 +21,6 @@ var app = angular.module('starter', ['ionic'])
     }
   });
 
-/*
   // Disable BACK button on home
   $ionicPlatform.registerBackButtonAction(function(event) {
     if (true) { // your check here
@@ -35,7 +34,6 @@ var app = angular.module('starter', ['ionic'])
       })
     }
   }, 100);
-*/
 
 })
 
