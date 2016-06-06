@@ -2,3 +2,9 @@
 #bck  {
     background-image: url("../img/tfila.jpg");
 }
+
+.bottom {
+    position: fixed;
+    bottom: 0;
+    padding: 20px;
+}
