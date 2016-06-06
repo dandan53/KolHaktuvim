@@ -109,7 +109,21 @@ $scope.getPersonListMoq = function (type) {
 
           $scope.getPersonList(type, $scope.searchText);
         }
+        else
+        {
+          lastPageSize = 0;
+          $scope.isEmptyState = false;
+          currentStart = 0;
+          $scope.persons = [];
+        }
     };
+
+    $scope.rtl = function(element)
+    {   
+        if(element.setSelectionRange){
+            element.setSelectionRange(0,0);
+        }
+    }
 
     var type = "";
     var PAGA_SIZE = 10;

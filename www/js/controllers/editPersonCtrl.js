@@ -130,6 +130,12 @@
         return retVal;  
     }; 
 
+    $scope.rtl = function(element)
+    {   
+        if(element.setSelectionRange){
+            element.setSelectionRange(0,0);
+        }
+    }
 
     $scope.initPerson();
 

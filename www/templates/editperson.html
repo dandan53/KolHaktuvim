@@ -4,13 +4,16 @@
  <form name="myForm" novalidate>    
       <div class="list">
         <label class="item item-input">
-          <input type="text" name="firstName" placeholder="שם פרטי" ng-model="newPerson.firstName" ng-required="true" style="text-align: right;">
+          <input type="text" name="firstName" placeholder="שם פרטי" ng-model="newPerson.firstName" ng-required="true" 
+          style="text-align: right; direction:RTL;" onkeyup="rtl(this);">
         </label>
         <label class="item item-input">
-          <input type="text" name="lastName" placeholder="שם משפחה" ng-model="newPerson.lastName" ng-required="true" style="text-align: right;">
+          <input type="text" name="lastName" placeholder="שם משפחה" ng-model="newPerson.lastName" ng-required="true"           
+          style="text-align: right; direction:RTL;" onkeyup="rtl(this);">
         </label>
         <label class="item item-input">
-          <input type="text" name="mother" placeholder="שם האם" ng-model="newPerson.mother" ng-required="true" style="text-align: right;">
+          <input type="text" name="mother" placeholder="שם האם" ng-model="newPerson.mother" ng-required="true" 
+          style="text-align: right; direction:RTL;" onkeyup="rtl(this);">
         </label>
 
         <div class="item item-divider ng-binding" style="text-align: right;"> מין </div>
