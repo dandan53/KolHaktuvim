@@ -7,8 +7,14 @@
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
-  $scope.shareSubject = "האפליקציה כל הכתובים זמינה עכשיו עבורך";
-  $scope.shareMessage = "אני משתמש באפליקציה כל הכתובים וחשבתי שהיא תהיה שימושית עבורך. נסה אותה על מכשיר האנדרויד שלך:";
-  $scope.shareLink = "https://play.google.com/store/search?q=%D7%AA%D7%A4%D7%99%D7%9C%D7%94&c=apps";
+  var shareSubject = "האפליקציה כל הכתובים זמינה עכשיו עבורך";
+  var shareMessage = "אני משתמש באפליקציה כל הכתובים וחשבתי שהיא תהיה שימושית עבורך. נסה אותה על מכשיר האנדרויד שלך:";
+  var shareLink = "https://play.google.com/store/apps/developer?id=RobertR&hl=en";
+
+  $scope.shareApp = function(){
+    //alert(shareSubject + " " + shareMessage + " " + shareLink);
+     window.plugins.socialsharing.share(shareMessage, shareSubject, null, shareLink);
+  };
+
 
 });

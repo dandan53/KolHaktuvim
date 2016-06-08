@@ -7,4 +7,14 @@
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
+  var shareSubject = "האפליקציה כל הכתובים זמינה עכשיו עבורך";
+  var shareMessage = "אני משתמש באפליקציה כל הכתובים וחשבתי שהיא תהיה שימושית עבורך. נסה אותה על מכשיר האנדרויד שלך:";
+  var shareLink = "https://play.google.com/store/apps/developer?id=RobertR&hl=en";
+
+  $scope.shareApp = function(){
+    //alert(shareSubject + " " + shareMessage + " " + shareLink);
+     window.plugins.socialsharing.share(shareMessage, shareSubject, null, shareLink);
+  };
+
+
 });
