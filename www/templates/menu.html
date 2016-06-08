@@ -22,7 +22,7 @@
           רשימת לרפואה
         </ion-item>
         <ion-item menu-close ng-href="#/app/iluilist">
-          רשימת לעילוי נשמה        
+          רשימת לעילוי נשמה
         </ion-item>
         <ion-item menu-close ng-href="#/app/search">
           חיפוש
@@ -39,6 +39,14 @@
         <ion-item menu-close ng-href="#/app/iluipray">
          תפילה לעילוי
         </ion-item>
+
+        <ion-item menu-close style="cursor:pointer"
+                  onclick="window.plugins.socialsharing.share(shareMessage, shareSubject, null, shareLink)" >
+          <div style="padding-right: 35px">
+          שתף את האפליקציה
+          </div>
+        </ion-item>
+
         <ion-item menu-close ng-href="#/app/about">
          אודות
         </ion-item>

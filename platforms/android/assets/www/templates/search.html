@@ -4,7 +4,8 @@
     item-input-inset bar-light">
     <label class="item-input-wrapper">
       <i class="icon ion-search placeholder-icon"></i>
-      <input type="search" ng-model="searchText" ng-change="searchQueryChange()" placeholder="חיפוש" style="text-align: right;">
+      <input type="search" ng-model="searchText" ng-change="searchQueryChange()" placeholder="חיפוש" 
+      style="text-align: right; direction:RTL;" onkeyup="rtl(this);">
     </label>
   </div>
 

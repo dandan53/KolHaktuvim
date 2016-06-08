@@ -21,6 +21,9 @@
         },
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.ionicframework.ktuvim113895"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "com.ionicframework.ktuvim113895"
         }
     },
     "dependent_plugins": {}

@@ -102,6 +102,26 @@ var app = angular.module('starter', ['ionic'])
         }
       })
 
+  .state('app.refuapray', {
+    url: '/refuapray',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/refuapray.html'//,
+        //controller: 'PlaylistCtrl'
+      }
+    }
+  })
+
+.state('app.iluipray', {
+    url: '/iluipray',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/iluipray.html'//,
+        //controller: 'PlaylistCtrl'
+      }
+    }
+  })
+
   .state('app.about', {
     url: '/about',
     views: {
